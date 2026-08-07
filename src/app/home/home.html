@@ -1,0 +1,70 @@
+<h1>
+Card Helper
+</h1>
+
+
+<h2>
+Numero giocatori
+</h2>
+
+
+<button 
+(click)="playersNumber=1">
+1
+</button>
+
+
+<button 
+(click)="playersNumber=2">
+2
+</button>
+
+
+<button 
+(click)="playersNumber=3">
+3
+</button>
+
+
+<button 
+(click)="playersNumber=4">
+4
+</button>
+
+
+
+<h2>
+Vita iniziale
+</h2>
+
+
+<input 
+type="number"
+[(ngModel)]="life">
+
+
+
+<h2>
+Giocatori
+</h2>
+
+
+<div *ngFor="let name of names; let i=index">
+
+
+<input
+*ngIf="i < playersNumber"
+[(ngModel)]="names[i]"
+placeholder="Giocatore {{i+1}}">
+
+
+</div>
+
+
+
+<button
+(click)="start()">
+
+INIZIA PARTITA
+
+</button>
