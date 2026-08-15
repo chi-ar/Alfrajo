@@ -1,428 +1,232 @@
-/* ============================================== */
-/* GAME                                           */
-/* ============================================== */
-
 .game {
   width: 100%;
   height: 100dvh;
-
   box-sizing: border-box;
-
   padding: 18px 22px;
-
   display: flex;
   flex-direction: column;
-
   overflow: hidden;
-
-  background:
-    radial-gradient(
-      circle at top,
-      #292929 0%,
-      #151515 45%,
-      #0d0d0d 100%
-    );
-
-  color: #ffffff;
+  color: #fff;
+  background: radial-gradient(circle at top, #292929, #151515 45%, #0d0d0d);
 }
 
-
-/* ============================================== */
-/* HEADER                                         */
-/* ============================================== */
+/* HEADER */
 
 .game-header {
   display: grid;
-
   grid-template-columns: 1fr auto 1fr;
-
   align-items: center;
-
   gap: 20px;
-
-  flex-shrink: 0;
-
   margin-bottom: 12px;
+  flex-shrink: 0;
 }
-
-
-/* ============================================== */
-/* HOME BUTTON                                    */
-/* ============================================== */
 
 .back-button {
   justify-self: start;
-
   height: 40px;
-
   padding: 0 14px;
-
   border: 1px solid #3b3b3b;
-
   border-radius: 10px;
-
   background: #202020;
-
   color: #aaa;
-
-  font-size: 13px;
-
   cursor: pointer;
-
-  transition:
-    background 0.15s ease,
-    border-color 0.15s ease,
-    color 0.15s ease;
 }
 
 .back-button:hover {
   background: #292929;
-
-  border-color: #555;
-
-  color: #ffffff;
+  color: #fff;
 }
-
-
-/* ============================================== */
-/* TITOLO                                         */
-/* ============================================== */
 
 .game-title {
   text-align: center;
-
   white-space: nowrap;
 }
 
 .game-title h1 {
   margin: 0;
-
   font-size: 27px;
-
   font-weight: 800;
-
   letter-spacing: 1.5px;
 }
 
 .game-title span {
   display: block;
-
   margin-top: 2px;
-
-  color: #777777;
-
+  color: #777;
   font-size: 11px;
 }
 
-
-/* ============================================== */
-/* TIMER PARTITA                                  */
-/* ============================================== */
-
-.game-timer {
-  justify-self: end;
-
+.game-timer,
+.current-player-timer {
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   gap: 10px;
-
-  min-width: 135px;
-
-  padding: 7px 12px;
-
   box-sizing: border-box;
-
-  border: 1px solid #333333;
-
+  border: 1px solid #333;
   border-radius: 10px;
-
   background: #191919;
 }
 
-.game-timer span {
-  color: #777777;
+.game-timer {
+  justify-self: end;
+  min-width: 135px;
+  padding: 7px 12px;
+}
 
+.game-timer span,
+.current-player-timer span {
+  color: #777;
   font-size: 10px;
 }
 
-.game-timer strong {
+.game-timer strong,
+.current-player-timer strong {
   font-family: monospace;
+}
 
+.game-timer strong {
   font-size: 18px;
 }
 
-
-/* ============================================== */
-/* TIMER GIOCATORE                               */
-/* ============================================== */
-
 .current-player-timer {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 12px;
-
   width: fit-content;
-
   margin: 0 auto 12px;
-
   padding: 7px 15px;
-
-  box-sizing: border-box;
-
-  border: 1px solid #444444;
-
-  border-radius: 10px;
-
-  background: #202020;
-
   flex-shrink: 0;
 }
 
 .current-player-timer span {
-  color: #aaaaaa;
-
   font-size: 11px;
 }
 
 .current-player-timer strong {
-  font-family: monospace;
-
   font-size: 17px;
 }
 
 
-/* ============================================== */
-/* PLAYERS                                        */
-/* ============================================== */
+/* PLAYERS */
 
 .players {
   width: 100%;
-
   flex: 1;
-
   min-height: 0;
-
   display: grid;
-
   gap: 14px;
-
   align-items: start;
 }
-
-
-/* ============================================== */
-/* 1 GIOCATORE                                    */
-/* ============================================== */
 
 .players.one-player {
   grid-template-columns: 1fr;
 }
 
-
-/* ============================================== */
-/* 2 GIOCATORI                                    */
-/* ============================================== */
-
 .players.two-players {
-  grid-template-columns: repeat(
-    2,
-    minmax(0, 1fr)
-  );
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-
-
-/* ============================================== */
-/* 3 GIOCATORI                                    */
-/* ============================================== */
 
 .players.three-players {
-  grid-template-columns: repeat(
-    3,
-    minmax(0, 1fr)
-  );
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-
-
-/* ============================================== */
-/* 4 GIOCATORI                                    */
-/* ============================================== */
 
 .players.four-players {
-  grid-template-columns: repeat(
-    4,
-    minmax(0, 1fr)
-  );
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 
-/* ============================================== */
-/* PLAYER CARD                                    */
-/* ============================================== */
+/* PLAYER */
 
 .player {
-  display: flex;
-
-  flex-direction: column;
-
   min-width: 0;
-
   min-height: 0;
-
   box-sizing: border-box;
-
   padding: 18px;
-
-  border: 1px solid #333333;
-
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #333;
   border-radius: 18px;
-
-  background: rgba(25, 25, 25, 0.95);
-
-  box-shadow:
-    0 10px 35px rgba(0, 0, 0, 0.25);
-
+  background: rgba(25, 25, 25, .95);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, .25);
   overflow: hidden;
-
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
 }
-
-
-/* ============================================== */
-/* PLAYER CORRENTE                               */
-/* ============================================== */
 
 .player.current-player {
-  border-color: #ffffff;
-
+  border-color: #fff;
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.12),
-    0 12px 35px rgba(0, 0, 0, 0.35);
+    0 0 0 1px rgba(255, 255, 255, .12),
+    0 12px 35px rgba(0, 0, 0, .35);
 }
 
 
-/* ============================================== */
-/* PLAYER HEADER                                  */
-/* ============================================== */
+/* PLAYER HEADER */
 
 .player-header {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-
   gap: 8px;
-
   margin-bottom: 12px;
-
   flex-shrink: 0;
 }
 
 .player-name {
   display: flex;
-
   align-items: center;
-
   gap: 9px;
-
   min-width: 0;
 }
 
 .player-number {
+  width: 34px;
+  min-width: 34px;
+  height: 34px;
   display: flex;
-
   align-items: center;
   justify-content: center;
-
-  width: 34px;
-
-  min-width: 34px;
-
-  height: 34px;
-
   border-radius: 8px;
-
   background: #292929;
-
-  color: #999999;
-
+  color: #999;
   font-size: 12px;
-
   font-weight: 600;
 }
 
 .player-header h2 {
   margin: 0;
-
   min-width: 0;
-
   overflow: hidden;
-
   text-overflow: ellipsis;
-
   white-space: nowrap;
-
   font-size: 19px;
-
-  font-weight: 700;
 }
-
-
-/* ============================================== */
-/* TURNO                                          */
-/* ============================================== */
 
 .turn-badge {
   padding: 4px 7px;
-
   border-radius: 6px;
-
-  background: #ffffff;
-
-  color: #111111;
-
+  background: #fff;
+  color: #111;
   font-size: 8px;
-
   font-weight: 800;
-
-  letter-spacing: 0.8px;
-
-  flex-shrink: 0;
+  letter-spacing: .8px;
 }
 
 
-/* ============================================== */
-/* STATISTICHE                                   */
-/* ============================================== */
+/* STATS */
 
 .stat-section {
   padding: 10px 0;
-
   border-top: 1px solid #292929;
-
   flex-shrink: 0;
 }
 
 .stat-header {
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 }
 
-.stat-header > span {
-  color: #aaaaaa;
-
+.stat-header > span,
+.section h3 {
+  color: #aaa;
   font-size: 12px;
-
   font-weight: 600;
 }
 
@@ -430,639 +234,246 @@
   font-size: 24px;
 }
 
-
-/* ============================================== */
-/* LIFE BAR                                       */
-/* ============================================== */
-
 .life-bar {
   width: 100%;
-
   height: 4px;
-
   margin-top: 7px;
-
   overflow: hidden;
-
   border-radius: 10px;
-
   background: #292929;
 }
 
 .life-bar-fill {
   height: 100%;
-
   border-radius: inherit;
-
-  background: #ffffff;
-
-  transition: width 0.2s ease;
+  background: #fff;
 }
 
 
-/* ============================================== */
-/* BURST                                          */
-/* ============================================== */
+/* BURST */
 
 .counter {
   display: flex;
-
   align-items: center;
-
   gap: 7px;
 }
 
 .counter button {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
   width: 29px;
-
   height: 29px;
-
   padding: 0;
-
   border: 1px solid #3b3b3b;
-
   border-radius: 7px;
-
   background: #202020;
-
-  color: #aaaaaa;
-
+  color: #aaa;
   font-size: 17px;
-
   cursor: pointer;
-
-  transition:
-    background 0.15s ease,
-    border-color 0.15s ease,
-    color 0.15s ease;
 }
 
 .counter button:hover {
   background: #292929;
-
-  border-color: #666666;
-
-  color: #ffffff;
+  color: #fff;
 }
 
 .counter strong {
   min-width: 22px;
-
   text-align: center;
-
-  font-size: 16px;
 }
 
 
-/* ============================================== */
-/* SEZIONI                                        */
-/* ============================================== */
+/* SECTIONS */
 
 .section {
   margin-top: 13px;
-
   flex-shrink: 0;
 }
 
 .section h3 {
   margin: 0 0 7px;
-
-  color: #aaaaaa;
-
-  font-size: 12px;
-
-  font-weight: 600;
 }
 
 
-/* ============================================== */
-/* TOKEN                                          */
-/* ============================================== */
+/* TOKENS */
 
 .token-list {
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 6px;
 }
 
 .token {
   padding: 7px 9px;
-
   border: 1px solid #3b3b3b;
-
   border-radius: 7px;
-
   background: #202020;
-
-  color: #aaaaaa;
-
+  color: #aaa;
   font-size: 10px;
-
   cursor: pointer;
-
-  transition:
-    background 0.15s ease,
-    border-color 0.15s ease,
-    color 0.15s ease;
 }
 
 .token:hover {
   background: #292929;
-
-  border-color: #555555;
-
-  color: #ffffff;
+  color: #fff;
 }
 
 .token.used {
-  opacity: 0.3;
-
+  opacity: .3;
   text-decoration: line-through;
 }
 
 
-/* ============================================== */
-/* TALENTI                                        */
-/* ============================================== */
+/* TALENTS */
 
 .talents-section {
-  flex: 0 0 auto;
-
+  flex-shrink: 0;
   min-height: 0;
-
-  overflow: visible;
 }
 
 .talent-list {
   display: grid;
-
   grid-template-columns: 1fr;
-
   gap: 6px;
 }
 
-
-/* ============================================== */
-/* TALENTI 1/2 GIOCATORI                          */
-/* ============================================== */
-
 .compact-talents .talent-list {
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(0, 1fr)
-    );
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-
-
-/* ============================================== */
-/* TALENTO                                        */
-/* ============================================== */
 
 .talent {
   min-width: 0;
-
   min-height: 38px;
-
   padding: 6px;
-
   border: 1px solid #3b3b3b;
-
   border-radius: 7px;
-
   background: #202020;
-
-  color: #aaaaaa;
-
+  color: #aaa;
   font-size: 10px;
-
   cursor: pointer;
-
   overflow: hidden;
-
   text-overflow: ellipsis;
-
   white-space: nowrap;
-
-  transition:
-    background 0.15s ease,
-    border-color 0.15s ease,
-    color 0.15s ease;
 }
 
 .talent:hover {
   background: #292929;
-
-  border-color: #555555;
-
-  color: #ffffff;
+  color: #fff;
 }
 
 
-/* ============================================== */
-/* 3/4 GIOCATORI - SCHERMI STRETTI               */
-/* ============================================== */
-
-@media (max-width: 1000px) {
-
-  .players.three-players
-  .talent-list,
-
-  .players.four-players
-  .talent-list {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(0, 1fr)
-      );
-  }
-}
-
-
-/* ============================================== */
-/* CONTROLLI TURNO                               */
-/* ============================================== */
+/* TURN CONTROLS */
 
 .turn-controls {
-  display: flex;
-
-  align-items: center;
-
-  gap: 6px;
-
   width: 100%;
-
+  display: flex;
+  align-items: center;
+  gap: 6px;
   margin-top: 12px;
-
   flex-shrink: 0;
 }
 
-
-/* ============================================== */
-/* FINE TURNO                                     */
-/* ============================================== */
-
 .end-turn {
   flex: 1;
-
   min-width: 0;
-
   height: 42px;
-
   padding: 0 10px;
-
-  border: none;
-
+  border: 0;
   border-radius: 9px;
-
-  background: #ffffff;
-
-  color: #111111;
-
+  background: #fff;
+  color: #111;
   font-size: 11px;
-
   font-weight: 800;
-
   cursor: pointer;
-
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease;
 }
 
 .end-turn:hover {
   transform: translateY(-1px);
-
-  box-shadow:
-    0 7px 20px
-    rgba(255, 255, 255, 0.12);
+  box-shadow: 0 7px 20px rgba(255, 255, 255, .12);
 }
-
-.end-turn:active {
-  transform: translateY(0);
-}
-
-
-/* ============================================== */
-/* HISTORY BUTTON                                 */
-/* ============================================== */
 
 .history-button {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
   width: 42px;
-
   min-width: 42px;
-
   height: 42px;
-
   margin-left: auto;
-
   padding: 0;
-
   border: 1px solid #3b3b3b;
-
   border-radius: 9px;
-
   background: #202020;
-
-  color: #aaaaaa;
-
-  font-size: 14px;
-
+  color: #aaa;
   cursor: pointer;
-
-  flex-shrink: 0;
-
-  transition:
-    background 0.15s ease,
-    border-color 0.15s ease,
-    color 0.15s ease;
 }
 
 .history-button:hover {
   background: #292929;
-
-  border-color: #555555;
-
-  color: #ffffff;
+  color: #fff;
 }
 
 
-/* ============================================== */
-/* STORICO TURNI                                 */
-/* ============================================== */
+/* HISTORY */
 
 .turn-history {
   width: 100%;
-
   max-height: 130px;
-
   box-sizing: border-box;
-
   margin-top: 6px;
-
   padding: 9px;
-
   border: 1px solid #303030;
-
   border-radius: 9px;
-
   background: #191919;
-
   overflow-y: auto;
-
   flex-shrink: 0;
 }
 
 .turn-history h4 {
   margin: 0 0 6px;
-
-  color: #999999;
-
+  color: #999;
   font-size: 10px;
-
-  font-weight: 600;
 }
 
 .previous-turn {
   display: flex;
-
-  align-items: center;
-
   justify-content: space-between;
-
   padding: 5px 0;
-
   border-bottom: 1px solid #292929;
-
-  color: #aaaaaa;
-
+  color: #aaa;
   font-size: 10px;
 }
 
 .previous-turn:last-child {
-  border-bottom: none;
+  border-bottom: 0;
 }
 
 .previous-turn strong {
-  color: #ffffff;
-
+  color: #fff;
   font-family: monospace;
 }
 
 .turn-history p {
   margin: 0;
-
-  color: #666666;
-
+  color: #666;
   font-size: 10px;
 }
 
 
-/* ============================================== */
-/* LIGHT THEME                                    */
-/* ============================================== */
+/* TABLET */
 
-:host-context(body[data-theme='light']) .game {
-  background:
-    radial-gradient(
-      circle at top,
-      #ffffff 0%,
-      #eeeeee 50%,
-      #e2e2e2 100%
-    );
-
-  color: #111111;
-}
-
-:host-context(body[data-theme='light']) .player {
-  border-color: #d5d5d5;
-
-  background: rgba(255, 255, 255, 0.95);
-
-  box-shadow:
-    0 10px 35px
-    rgba(0, 0, 0, 0.08);
-}
-
-:host-context(body[data-theme='light'])
-.player.current-player {
-  border-color: #111111;
-
-  box-shadow:
-    0 0 0 1px
-    rgba(0, 0, 0, 0.1),
-
-    0 12px 35px
-    rgba(0, 0, 0, 0.12);
-}
-
-:host-context(body[data-theme='light'])
-.back-button {
-  border-color: #d5d5d5;
-
-  background: #f4f4f4;
-
-  color: #666666;
-}
-
-:host-context(body[data-theme='light'])
-.back-button:hover {
-  background: #eaeaea;
-
-  border-color: #bbbbbb;
-
-  color: #111111;
-}
-
-:host-context(body[data-theme='light'])
-.game-title span {
-  color: #888888;
-}
-
-:host-context(body[data-theme='light'])
-.game-timer,
-
-:host-context(body[data-theme='light'])
-.current-player-timer {
-  border-color: #d5d5d5;
-
-  background: #f4f4f4;
-}
-
-:host-context(body[data-theme='light'])
-.game-timer span,
-
-:host-context(body[data-theme='light'])
-.current-player-timer span {
-  color: #777777;
-}
-
-:host-context(body[data-theme='light'])
-.player-number {
-  background: #e8e8e8;
-
-  color: #666666;
-}
-
-:host-context(body[data-theme='light'])
-.stat-section {
-  border-color: #e5e5e5;
-}
-
-:host-context(body[data-theme='light'])
-.stat-header > span,
-
-:host-context(body[data-theme='light'])
-.section h3 {
-  color: #666666;
-}
-
-:host-context(body[data-theme='light'])
-.life-bar {
-  background: #e5e5e5;
-}
-
-:host-context(body[data-theme='light'])
-.life-bar-fill {
-  background: #111111;
-}
-
-:host-context(body[data-theme='light'])
-.counter button,
-
-:host-context(body[data-theme='light'])
-.token,
-
-:host-context(body[data-theme='light'])
-.talent,
-
-:host-context(body[data-theme='light'])
-.history-button {
-  border-color: #d5d5d5;
-
-  background: #f4f4f4;
-
-  color: #666666;
-}
-
-:host-context(body[data-theme='light'])
-.counter button:hover,
-
-:host-context(body[data-theme='light'])
-.token:hover,
-
-:host-context(body[data-theme='light'])
-.talent:hover,
-
-:host-context(body[data-theme='light'])
-.history-button:hover {
-  background: #eaeaea;
-
-  border-color: #bbbbbb;
-
-  color: #111111;
-}
-
-:host-context(body[data-theme='light'])
-.turn-history {
-  border-color: #dddddd;
-
-  background: #f4f4f4;
-}
-
-:host-context(body[data-theme='light'])
-.previous-turn {
-  border-color: #dddddd;
-
-  color: #666666;
-}
-
-:host-context(body[data-theme='light'])
-.previous-turn strong {
-  color: #111111;
-}
-
-:host-context(body[data-theme='light'])
-.turn-history p {
-  color: #888888;
-}
-
-
-/* ============================================== */
-/* RESPONSIVE: 4 -> 2 COLONNE                    */
-/* ============================================== */
-
-@media (max-width: 900px) {
-
+@media (max-width: 1200px) {
   .players.four-players {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(0, 1fr)
-      );
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1000px) {
+  .players.three-players .talent-list,
+  .players.four-players .talent-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 
-/* ============================================== */
-/* SCHERMI BASSI                                 */
-/* ============================================== */
+/* SCHERMI BASSI */
 
-@media (max-height: 750px)
-  and (min-width: 751px) {
-
+@media (max-height: 750px) and (min-width: 751px) {
   .game {
     padding: 12px 18px;
   }
@@ -1077,7 +488,6 @@
 
   .current-player-timer {
     margin-bottom: 8px;
-
     padding: 5px 12px;
   }
 
@@ -1108,37 +518,28 @@
 
   .talent {
     min-height: 34px;
-
-    padding: 5px;
   }
 }
 
 
-/* ============================================== */
-/* TABLET / MOBILE                               */
-/* ============================================== */
+/* MOBILE */
 
 @media (max-width: 750px) {
-
   .game {
     height: auto;
-
     min-height: 100dvh;
-
     overflow: auto;
-
     padding: 12px;
   }
 
   .game-header {
     grid-template-columns: 1fr;
-
     gap: 9px;
-
     margin-bottom: 10px;
   }
 
-  .back-button {
+  .back-button,
+  .game-timer {
     justify-self: center;
   }
 
@@ -1150,15 +551,9 @@
     font-size: 25px;
   }
 
-  .game-timer {
-    justify-self: center;
-  }
-
   .current-player-timer {
     width: 100%;
-
     justify-content: space-between;
-
     margin-bottom: 10px;
   }
 
@@ -1170,31 +565,15 @@
   }
 
   .players {
-    display: grid;
-
-    width: 100%;
-
     flex: none;
-
-    min-height: 0;
-
-    gap: 14px;
-
     align-items: start;
-  }
-
-  .player {
-    padding: 18px;
   }
 }
 
 
-/* ============================================== */
-/* TELEFONO PICCOLO                              */
-/* ============================================== */
+/* MOBILE PICCOLO */
 
 @media (max-width: 450px) {
-
   .game {
     padding: 10px;
   }
@@ -1210,4 +589,89 @@
   .game-title h1 {
     font-size: 22px;
   }
+}
+
+
+/* LIGHT THEME */
+
+:host-context(body[data-theme='light']) .game {
+  color: #111;
+  background: radial-gradient(circle at top, #fff, #eee 50%, #e2e2e2);
+}
+
+:host-context(body[data-theme='light']) .player {
+  border-color: #d5d5d5;
+  background: rgba(255, 255, 255, .95);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, .08);
+}
+
+:host-context(body[data-theme='light']) .player.current-player {
+  border-color: #111;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, .1),
+    0 12px 35px rgba(0, 0, 0, .12);
+}
+
+:host-context(body[data-theme='light']) .back-button,
+:host-context(body[data-theme='light']) .game-timer,
+:host-context(body[data-theme='light']) .current-player-timer,
+:host-context(body[data-theme='light']) .counter button,
+:host-context(body[data-theme='light']) .token,
+:host-context(body[data-theme='light']) .talent,
+:host-context(body[data-theme='light']) .history-button,
+:host-context(body[data-theme='light']) .turn-history {
+  border-color: #d5d5d5;
+  background: #f4f4f4;
+  color: #666;
+}
+
+:host-context(body[data-theme='light']) .back-button:hover,
+:host-context(body[data-theme='light']) .counter button:hover,
+:host-context(body[data-theme='light']) .token:hover,
+:host-context(body[data-theme='light']) .talent:hover,
+:host-context(body[data-theme='light']) .history-button:hover {
+  background: #eaeaea;
+  color: #111;
+}
+
+:host-context(body[data-theme='light']) .game-title span,
+:host-context(body[data-theme='light']) .game-timer span,
+:host-context(body[data-theme='light']) .current-player-timer span,
+:host-context(body[data-theme='light']) .stat-header > span,
+:host-context(body[data-theme='light']) .section h3 {
+  color: #777;
+}
+
+:host-context(body[data-theme='light']) .player-number {
+  background: #e8e8e8;
+  color: #666;
+}
+
+:host-context(body[data-theme='light']) .stat-section {
+  border-color: #e5e5e5;
+}
+
+:host-context(body[data-theme='light']) .life-bar {
+  background: #e5e5e5;
+}
+
+:host-context(body[data-theme='light']) .life-bar-fill {
+  background: #111;
+}
+
+:host-context(body[data-theme='light']) .turn-history {
+  background: #f4f4f4;
+}
+
+:host-context(body[data-theme='light']) .previous-turn {
+  border-color: #ddd;
+  color: #666;
+}
+
+:host-context(body[data-theme='light']) .previous-turn strong {
+  color: #111;
+}
+
+:host-context(body[data-theme='light']) .turn-history p {
+  color: #888;
 }
