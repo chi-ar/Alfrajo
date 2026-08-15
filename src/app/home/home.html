@@ -2,12 +2,14 @@
 
   <div class="setup-card">
 
-    <!-- TITOLO -->
+    <!-- ========================================== -->
+    <!-- TITOLO                                     -->
+    <!-- ========================================== -->
 
     <div class="title">
 
       <h1>
-        Alfrajo
+        PROGETTO ALFRAJO
       </h1>
 
       <p>
@@ -17,9 +19,9 @@
     </div>
 
 
-    <!-- ====================================== -->
-    <!-- NUMERO GIOCATORI -->
-    <!-- ====================================== -->
+    <!-- ========================================== -->
+    <!-- NUMERO GIOCATORI                           -->
+    <!-- ========================================== -->
 
     <section class="section">
 
@@ -37,6 +39,7 @@
           1
         </button>
 
+
         <button
           type="button"
           [class.selected]="playersNumber === 2"
@@ -45,6 +48,7 @@
           2
         </button>
 
+
         <button
           type="button"
           [class.selected]="playersNumber === 3"
@@ -52,6 +56,7 @@
         >
           3
         </button>
+
 
         <button
           type="button"
@@ -66,9 +71,9 @@
     </section>
 
 
-    <!-- ====================================== -->
-    <!-- VITA -->
-    <!-- ====================================== -->
+    <!-- ========================================== -->
+    <!-- VITA INIZIALE                             -->
+    <!-- ========================================== -->
 
     <section class="section">
 
@@ -93,9 +98,9 @@
     </section>
 
 
-    <!-- ====================================== -->
-    <!-- GIOCATORI -->
-    <!-- ====================================== -->
+    <!-- ========================================== -->
+    <!-- GIOCATORI                                 -->
+    <!-- ========================================== -->
 
     <section class="section">
 
@@ -108,9 +113,8 @@
         <div
           class="player-input"
           *ngFor="
-            let name of names;
-            let i = index;
-            trackBy: trackPlayer
+            let name of names.slice(0, playersNumber);
+            let i = index
           "
         >
 
@@ -118,8 +122,8 @@
             {{ i + 1 }}
           </span>
 
+
           <input
-            *ngIf="i < playersNumber"
             type="text"
             [(ngModel)]="names[i]"
             [placeholder]="'Nome giocatore ' + (i + 1)"
@@ -132,61 +136,64 @@
 
     </section>
 
-<!-- ========================================== -->
-<!-- TEMA -->
-<!-- ========================================== -->
 
-<section class="section theme-section">
+    <!-- ========================================== -->
+    <!-- TEMA                                      -->
+    <!-- ========================================== -->
 
-  <h2>
-    Tema
-  </h2>
+    <section class="section theme-section">
 
-
-  <div class="theme-selector">
-
-    <button
-      type="button"
-
-      [class.selected]="theme === 'dark'"
-
-      (click)="changeTheme('dark')"
-    >
-      <span class="theme-icon">
-        ☾
-      </span>
-
-      Scuro
-    </button>
+      <h2>
+        Tema
+      </h2>
 
 
-    <button
-      type="button"
+      <div class="theme-selector">
 
-      [class.selected]="theme === 'light'"
+        <button
+          type="button"
+          [class.selected]="theme === 'dark'"
+          (click)="changeTheme('dark')"
+        >
 
-      (click)="changeTheme('light')"
-    >
-      <span class="theme-icon">
-        ☀
-      </span>
+          <span class="theme-icon">
+            ☾
+          </span>
 
-      Chiaro
-    </button>
+          Scuro
 
-  </div>
+        </button>
 
-</section>
 
-    <!-- ====================================== -->
-    <!-- INIZIA PARTITA -->
-    <!-- ====================================== -->
+        <button
+          type="button"
+          [class.selected]="theme === 'light'"
+          (click)="changeTheme('light')"
+        >
+
+          <span class="theme-icon">
+            ☀
+          </span>
+
+          Chiaro
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- INIZIA PARTITA                            -->
+    <!-- ========================================== -->
 
     <button
       type="button"
       class="start-button"
       (click)="start()"
     >
+
       <span>
         INIZIA PARTITA
       </span>
