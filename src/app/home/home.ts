@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -14,7 +14,7 @@ import { Game } from '../services/game';
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
-export class Home {
+export class Home implements OnInit {
 
   playersNumber = 1;
 
@@ -28,6 +28,13 @@ export class Home {
   ];
 
 
+  // ==========================================
+  // TEMA
+  // ==========================================
+
+  theme: 'dark' | 'light' = 'dark';
+
+
   constructor(
     private game: Game,
     private router: Router
@@ -35,7 +42,64 @@ export class Home {
 
 
   // ==========================================
-  // SELEZIONE NUMERO GIOCATORI
+  // AVVIO
+  // ==========================================
+
+  ngOnInit() {
+
+    const savedTheme =
+      localStorage.getItem('alfrajo-theme');
+
+
+    if (
+      savedTheme === 'light' ||
+      savedTheme === 'dark'
+    ) {
+
+      this.theme = savedTheme;
+
+    }
+
+
+    this.applyTheme();
+
+  }
+
+
+  // ==========================================
+  // CAMBIO TEMA
+  // ==========================================
+
+  changeTheme(theme: 'dark' | 'light') {
+
+    this.theme = theme;
+
+    localStorage.setItem(
+      'alfrajo-theme',
+      theme
+    );
+
+    this.applyTheme();
+
+  }
+
+
+  // ==========================================
+  // APPLICA TEMA
+  // ==========================================
+
+  private applyTheme() {
+
+    document.body.setAttribute(
+      'data-theme',
+      this.theme
+    );
+
+  }
+
+
+  // ==========================================
+  // GIOCATORI
   // ==========================================
 
   selectPlayers(number: number) {
@@ -46,10 +110,13 @@ export class Home {
 
 
   // ==========================================
-  // TRACK DEGLI INPUT
+  // TRACK
   // ==========================================
 
-  trackPlayer(index: number, player: string) {
+  trackPlayer(
+    index: number,
+    player: string
+  ) {
 
     return index;
 

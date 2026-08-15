@@ -1,0 +1,549 @@
+/* ============================================== */
+/* HOME                                           */
+/* ============================================== */
+
+.home {
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  padding: 30px;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #292929 0%,
+      #151515 45%,
+      #0d0d0d 100%
+    );
+
+  color: #ffffff;
+}
+
+
+/* ============================================== */
+/* CARD CONFIGURAZIONE                            */
+/* ============================================== */
+
+.setup-card {
+  width: 100%;
+
+  max-width: 520px;
+
+  box-sizing: border-box;
+
+  padding: 40px;
+
+  border: 1px solid #333;
+
+  border-radius: 24px;
+
+  background: rgba(25, 25, 25, 0.95);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ============================================== */
+/* TITOLO                                         */
+/* ============================================== */
+
+.title {
+  text-align: center;
+
+  margin-bottom: 40px;
+}
+
+
+.title h1 {
+  margin: 0;
+
+  font-size: 42px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+
+.title p {
+  margin: 8px 0 0;
+
+  color: #999;
+
+  font-size: 15px;
+}
+
+
+/* ============================================== */
+/* SEZIONI                                        */
+/* ============================================== */
+
+.section {
+  margin-bottom: 30px;
+}
+
+
+.section h2 {
+  margin: 0 0 12px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #bdbdbd;
+}
+
+
+/* ============================================== */
+/* NUMERO GIOCATORI                              */
+/* ============================================== */
+
+.players-selector {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 10px;
+}
+
+
+.players-selector button {
+  height: 52px;
+
+  border: 1px solid #3b3b3b;
+
+  border-radius: 12px;
+
+  background: #202020;
+
+  color: #aaa;
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+
+.players-selector button:hover {
+  background: #292929;
+
+  border-color: #555;
+
+  transform: translateY(-1px);
+}
+
+
+.players-selector button.selected {
+  background: #ffffff;
+
+  color: #111;
+
+  border-color: #ffffff;
+}
+
+
+/* ============================================== */
+/* VITA                                          */
+/* ============================================== */
+
+.life-input-wrapper {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+.life-input-wrapper input {
+  width: 100%;
+
+  height: 48px;
+
+  box-sizing: border-box;
+
+  padding: 0 14px;
+
+  border: 1px solid #3b3b3b;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #202020;
+
+  color: #ffffff;
+
+  font-size: 17px;
+}
+
+
+.life-input-wrapper input:focus {
+  border-color: #ffffff;
+}
+
+
+.life-input-wrapper span {
+  color: #888;
+
+  font-weight: 600;
+}
+
+
+/* ============================================== */
+/* LISTA GIOCATORI                               */
+/* ============================================== */
+
+.players-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+
+.player-input {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+.player-number {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 38px;
+
+  min-width: 38px;
+
+  height: 38px;
+
+  border-radius: 10px;
+
+  background: #292929;
+
+  color: #999;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+.player-input input {
+  width: 100%;
+
+  height: 46px;
+
+  box-sizing: border-box;
+
+  padding: 0 14px;
+
+  border: 1px solid #3b3b3b;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #202020;
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+
+.player-input input::placeholder {
+  color: #666;
+}
+
+
+.player-input input:focus {
+  border-color: #ffffff;
+
+  background: #252525;
+}
+
+
+/* ============================================== */
+/* PULSANTE INIZIA                               */
+/* ============================================== */
+
+.start-button {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  width: 100%;
+
+  height: 56px;
+
+  margin-top: 10px;
+
+  padding: 0 20px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  color: #111;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+
+.start-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 25px rgba(255, 255, 255, 0.15);
+}
+
+
+.start-button:active {
+  transform: translateY(0);
+}
+
+
+.arrow {
+  font-size: 22px;
+}
+
+
+/* ============================================== */
+/* MOBILE                                         */
+/* ============================================== */
+
+@media (max-width: 600px) {
+
+  .home {
+    padding: 15px;
+  }
+
+
+  .setup-card {
+    padding: 25px;
+
+    border-radius: 18px;
+  }
+
+
+  .title {
+    margin-bottom: 30px;
+  }
+
+
+  .title h1 {
+    font-size: 34px;
+  }
+
+}
+
+/* ============================================== */
+/* TEMA                                           */
+/* ============================================== */
+
+.theme-selector {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 10px;
+}
+
+
+.theme-selector button {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  height: 48px;
+
+  border: 1px solid #3b3b3b;
+
+  border-radius: 10px;
+
+  background: #202020;
+
+  color: #aaa;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+
+.theme-selector button:hover {
+  background: #292929;
+
+  border-color: #555;
+
+  color: #fff;
+}
+
+
+.theme-selector button.selected {
+  background: #ffffff;
+
+  border-color: #ffffff;
+
+  color: #111;
+}
+
+
+.theme-icon {
+  font-size: 18px;
+}
+
+/* ============================================== */
+/* LIGHT THEME                                    */
+/* ============================================== */
+
+:host-context(body[data-theme='light']) .home {
+  background:
+    radial-gradient(
+      circle at top,
+      #ffffff 0%,
+      #eeeeee 50%,
+      #e2e2e2 100%
+    );
+
+  color: #111111;
+}
+
+
+:host-context(body[data-theme='light']) .setup-card {
+  border-color: #d5d5d5;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.12);
+}
+
+
+:host-context(body[data-theme='light']) .title p {
+  color: #777;
+}
+
+
+:host-context(body[data-theme='light']) .section h2 {
+  color: #666;
+}
+
+
+:host-context(body[data-theme='light']) .players-selector button {
+  border-color: #d5d5d5;
+
+  background: #f4f4f4;
+
+  color: #666;
+}
+
+
+:host-context(body[data-theme='light']) .players-selector button:hover {
+  background: #eaeaea;
+
+  border-color: #bbb;
+}
+
+
+:host-context(body[data-theme='light']) .players-selector button.selected {
+  background: #111111;
+
+  color: #ffffff;
+
+  border-color: #111111;
+}
+
+
+:host-context(body[data-theme='light']) .life-input-wrapper input,
+:host-context(body[data-theme='light']) .player-input input {
+  border-color: #d5d5d5;
+
+  background: #f4f4f4;
+
+  color: #111111;
+}
+
+
+:host-context(body[data-theme='light']) .player-input input::placeholder {
+  color: #999;
+}
+
+
+:host-context(body[data-theme='light']) .player-number {
+  background: #e8e8e8;
+
+  color: #666;
+}
+
+
+:host-context(body[data-theme='light']) .theme-selector button {
+  border-color: #d5d5d5;
+
+  background: #f4f4f4;
+
+  color: #666;
+}
+
+
+:host-context(body[data-theme='light']) .theme-selector button.selected {
+  background: #111111;
+
+  color: #ffffff;
+
+  border-color: #111111;
+}

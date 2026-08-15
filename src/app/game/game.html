@@ -1,41 +1,29 @@
 <div class="game">
 
   <!-- ========================================== -->
-  <!-- HEADER -->
+  <!-- HEADER                                     -->
   <!-- ========================================== -->
 
   <header class="game-header">
 
-    <!-- Torna alla Home -->
     <button
       type="button"
       class="back-button"
       (click)="goBack()"
     >
-      ← Torna indietro
+      ← Home
     </button>
 
 
-    <!-- Timer del giocatore corrente -->
-    <div class="player-timer">
-
-      <span>
-        Timer Player {{ currentPlayerIndex + 1 }}
-      </span>
-
-      <strong>
-        {{ formatTime(playerElapsedSeconds) }}
-      </strong>
-
+    <div class="game-title">
+      <h1>Alfrajo</h1>
+      <span>Partita in corso</span>
     </div>
 
 
-    <!-- Timer totale -->
     <div class="game-timer">
 
-      <span>
-        Tempo partita
-      </span>
+      <span>Tempo partita</span>
 
       <strong>
         {{ formatTime(elapsedSeconds) }}
@@ -47,55 +35,87 @@
 
 
   <!-- ========================================== -->
-  <!-- GIOCATORI -->
+  <!-- TIMER GIOCATORE                           -->
+  <!-- ========================================== -->
+
+  <div class="current-player-timer">
+
+    <span>
+      Timer Player {{ currentPlayerIndex + 1 }}
+    </span>
+
+    <strong>
+      {{ formatTime(playerElapsedSeconds) }}
+    </strong>
+
+  </div>
+
+
+  <!-- ========================================== -->
+  <!-- GIOCATORI                                 -->
   <!-- ========================================== -->
 
   <main
     class="players"
+
     [class.one-player]="players.length === 1"
     [class.two-players]="players.length === 2"
     [class.three-players]="players.length === 3"
     [class.four-players]="players.length === 4"
   >
 
-
-    <!-- ======================================== -->
-    <!-- SINGOLO GIOCATORE -->
-    <!-- ======================================== -->
-
     <section
       class="player"
-      *ngFor="let player of players; let i = index"
-      [class.current-player]="i === currentPlayerIndex"
+
+      *ngFor="
+        let player of players;
+        let i = index
+      "
+
+      [class.current-player]="
+        i === currentPlayerIndex
+      "
     >
 
 
       <!-- ====================================== -->
-      <!-- CONTENUTO PRINCIPALE -->
+      <!-- HEADER PLAYER                         -->
       <!-- ====================================== -->
 
-      <div class="player-content">
+      <div class="player-header">
 
+        <div class="player-name">
 
-        <!-- Nome -->
-        <div class="player-header">
+          <span class="player-number">
+            {{ i + 1 }}
+          </span>
 
           <h2>
             {{ player.name }}
           </h2>
 
-         
-
         </div>
 
 
-        <!-- ==================================== -->
-        <!-- VITA -->
-        <!-- ==================================== -->
+        <span
+          class="turn-badge"
+          *ngIf="i === currentPlayerIndex"
+        >
+          TURNO
+        </span>
 
-        <div class="stat">
+      </div>
 
-          <span class="label">
+
+      <!-- ====================================== -->
+      <!-- VITA                                  -->
+      <!-- ====================================== -->
+
+      <div class="stat-section">
+
+        <div class="stat-header">
+
+          <span>
             Vita
           </span>
 
@@ -106,13 +126,31 @@
         </div>
 
 
-        <!-- ==================================== -->
-        <!-- BURST -->
-        <!-- ==================================== -->
+        <div class="life-bar">
 
-        <div class="stat burst">
+          <div
+            class="life-bar-fill"
+            [style.width.%]="
+              player.life > 0
+                ? (player.life / 30) * 100
+                : 0
+            "
+          ></div>
 
-          <span class="label">
+        </div>
+
+      </div>
+
+
+      <!-- ====================================== -->
+      <!-- BURST                                  -->
+      <!-- ====================================== -->
+
+      <div class="stat-section">
+
+        <div class="stat-header">
+
+          <span>
             Burst
           </span>
 
@@ -121,7 +159,9 @@
 
             <button
               type="button"
-              (click)="player.burst = player.burst - 1"
+              (click)="
+                player.burst = player.burst - 1
+              "
             >
               −
             </button>
@@ -134,7 +174,9 @@
 
             <button
               type="button"
-              (click)="player.burst = player.burst + 1"
+              (click)="
+                player.burst = player.burst + 1
+              "
             >
               +
             </button>
@@ -143,138 +185,136 @@
 
         </div>
 
-
-        <!-- ==================================== -->
-        <!-- TOKEN -->
-        <!-- ==================================== -->
-
-        <div class="tokens">
-
-          <h3>
-            Token azione
-          </h3>
+      </div>
 
 
-          <div class="token-list">
+      <!-- ====================================== -->
+      <!-- TOKEN                                  -->
+      <!-- ====================================== -->
 
-            <button
-              type="button"
-              class="token"
-              [class.used]="player.tokens.action"
-            >
-              Azione
-            </button>
+      <div class="section">
 
-
-            <button
-              type="button"
-              class="token"
-              [class.used]="player.tokens.move"
-            >
-              Movimento
-            </button>
+        <h3>
+          Token azione
+        </h3>
 
 
-            <button
-              type="button"
-              class="token"
-              [class.used]="player.tokens.special"
-            >
-              Speciale
-            </button>
+        <div class="token-list">
 
-          </div>
-
-        </div>
+          <button
+            type="button"
+            class="token"
+            [class.used]="player.tokens.action"
+          >
+            Azione
+          </button>
 
 
-        <!-- ==================================== -->
-        <!-- TALENTI -->
-        <!-- ==================================== -->
-
-        <div class="talents">
-
-          <h3>
-            Talenti
-          </h3>
+          <button
+            type="button"
+            class="token"
+            [class.used]="player.tokens.move"
+          >
+            Movimento
+          </button>
 
 
-          <div class="talent-list">
-
-            <button
-              type="button"
-              class="talent"
-              *ngFor="let talent of player.talents"
-            >
-              {{ talent.name }}
-            </button>
-
-          </div>
+          <button
+            type="button"
+            class="token"
+            [class.used]="player.tokens.special"
+          >
+            Speciale
+          </button>
 
         </div>
-
 
       </div>
 
 
       <!-- ====================================== -->
-      <!-- CONTROLLI TURNO -->
+      <!-- TALENTI                                -->
+      <!-- ====================================== -->
+
+      <div class="section talents-section">
+
+        <h3>
+          Talenti
+        </h3>
+
+
+        <div class="talent-list">
+
+          <button
+            type="button"
+            class="talent"
+            *ngFor="
+              let talent of player.talents
+            "
+          >
+
+            {{ talent.name }}
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- ====================================== -->
+      <!-- CONTROLLI TURNO                      -->
       <!-- ====================================== -->
 
       <div class="turn-controls">
 
-
-        <!-- Fine turno -->
         <button
           *ngIf="i === currentPlayerIndex"
+
           type="button"
+
           class="end-turn"
+
           (click)="endTurn()"
         >
           Fine turno
         </button>
 
 
-        <!--
-          Questo pulsante è sempre presente
-          e rimane sempre a destra
-        -->
-
         <button
           type="button"
+
           class="history-button"
-          (click)="openHistory[i] = !openHistory[i]"
-          [attr.aria-label]="
-            openHistory[i]
-              ? 'Nascondi turni precedenti'
-              : 'Mostra turni precedenti'
+
+          (click)="
+            openHistory[i] =
+              !openHistory[i]
           "
         >
           {{ openHistory[i] ? '▲' : '▼' }}
         </button>
 
-
       </div>
 
 
       <!-- ====================================== -->
-      <!-- STORICO TURNI -->
+      <!-- STORICO                               -->
       <!-- ====================================== -->
 
       <div
         class="turn-history"
+
         *ngIf="openHistory[i]"
       >
-
 
         <h4>
           Turni precedenti
         </h4>
 
 
-        <!-- Se ci sono turni -->
         <div
           class="previous-turn"
+
           *ngFor="
             let time of player.turnTimes;
             let turnIndex = index
@@ -292,20 +332,18 @@
         </div>
 
 
-        <!-- Nessun turno -->
         <p
-          class="no-history"
-          *ngIf="player.turnTimes.length === 0"
+          *ngIf="
+            player.turnTimes.length === 0
+          "
         >
           Nessun turno precedente
         </p>
-
 
       </div>
 
 
     </section>
-
 
   </main>
 

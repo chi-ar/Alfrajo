@@ -1,103 +1,202 @@
-<h1>
-  Card Helper
-</h1>
+<div class="home">
 
+  <div class="setup-card">
+
+    <!-- TITOLO -->
+
+    <div class="title">
+
+      <h1>
+        Alfrajo
+      </h1>
+
+      <p>
+        Configura la partita
+      </p>
+
+    </div>
+
+
+    <!-- ====================================== -->
+    <!-- NUMERO GIOCATORI -->
+    <!-- ====================================== -->
+
+    <section class="section">
+
+      <h2>
+        Numero giocatori
+      </h2>
+
+      <div class="players-selector">
+
+        <button
+          type="button"
+          [class.selected]="playersNumber === 1"
+          (click)="selectPlayers(1)"
+        >
+          1
+        </button>
+
+        <button
+          type="button"
+          [class.selected]="playersNumber === 2"
+          (click)="selectPlayers(2)"
+        >
+          2
+        </button>
+
+        <button
+          type="button"
+          [class.selected]="playersNumber === 3"
+          (click)="selectPlayers(3)"
+        >
+          3
+        </button>
+
+        <button
+          type="button"
+          [class.selected]="playersNumber === 4"
+          (click)="selectPlayers(4)"
+        >
+          4
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================== -->
+    <!-- VITA -->
+    <!-- ====================================== -->
+
+    <section class="section">
+
+      <h2>
+        Vita iniziale
+      </h2>
+
+      <div class="life-input-wrapper">
+
+        <input
+          type="number"
+          min="1"
+          [(ngModel)]="life"
+        >
+
+        <span>
+          HP
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================== -->
+    <!-- GIOCATORI -->
+    <!-- ====================================== -->
+
+    <section class="section">
+
+      <h2>
+        Giocatori
+      </h2>
+
+      <div class="players-list">
+
+        <div
+          class="player-input"
+          *ngFor="
+            let name of names;
+            let i = index;
+            trackBy: trackPlayer
+          "
+        >
+
+          <span class="player-number">
+            {{ i + 1 }}
+          </span>
+
+          <input
+            *ngIf="i < playersNumber"
+            type="text"
+            [(ngModel)]="names[i]"
+            [placeholder]="'Nome giocatore ' + (i + 1)"
+            autocomplete="off"
+          >
+
+        </div>
+
+      </div>
+
+    </section>
 
 <!-- ========================================== -->
-<!-- NUMERO GIOCATORI -->
+<!-- TEMA -->
 <!-- ========================================== -->
 
-<h2>
-  Numero giocatori
-</h2>
+<section class="section theme-section">
+
+  <h2>
+    Tema
+  </h2>
 
 
-<button
-  type="button"
-  [class.selected]="playersNumber === 1"
-  (click)="selectPlayers(1)"
->
-  1
-</button>
+  <div class="theme-selector">
+
+    <button
+      type="button"
+
+      [class.selected]="theme === 'dark'"
+
+      (click)="changeTheme('dark')"
+    >
+      <span class="theme-icon">
+        ☾
+      </span>
+
+      Scuro
+    </button>
 
 
-<button
-  type="button"
-  [class.selected]="playersNumber === 2"
-  (click)="selectPlayers(2)"
->
-  2
-</button>
+    <button
+      type="button"
 
+      [class.selected]="theme === 'light'"
 
-<button
-  type="button"
-  [class.selected]="playersNumber === 3"
-  (click)="selectPlayers(3)"
->
-  3
-</button>
+      (click)="changeTheme('light')"
+    >
+      <span class="theme-icon">
+        ☀
+      </span>
 
+      Chiaro
+    </button>
 
-<button
-  type="button"
-  [class.selected]="playersNumber === 4"
-  (click)="selectPlayers(4)"
->
-  4
-</button>
+  </div>
 
+</section>
 
-<!-- ========================================== -->
-<!-- VITA -->
-<!-- ========================================== -->
+    <!-- ====================================== -->
+    <!-- INIZIA PARTITA -->
+    <!-- ====================================== -->
 
-<h2>
-  Vita iniziale
-</h2>
+    <button
+      type="button"
+      class="start-button"
+      (click)="start()"
+    >
+      <span>
+        INIZIA PARTITA
+      </span>
 
+      <span class="arrow">
+        →
+      </span>
 
-<input
-  type="number"
-  [(ngModel)]="life"
->
+    </button>
 
-
-<!-- ========================================== -->
-<!-- GIOCATORI -->
-<!-- ========================================== -->
-
-<h2>
-  Giocatori
-</h2>
-
-
-<div
-  *ngFor="
-    let name of names;
-    let i = index;
-    trackBy: trackPlayer
-  "
->
-
-  <input
-    *ngIf="i < playersNumber"
-    type="text"
-    [(ngModel)]="names[i]"
-    [placeholder]="'Giocatore ' + (i + 1)"
-    autocomplete="off"
-  >
+  </div>
 
 </div>
-
-
-<!-- ========================================== -->
-<!-- INIZIA PARTITA -->
-<!-- ========================================== -->
-
-<button
-  type="button"
-  (click)="start()"
->
-  INIZIA PARTITA
-</button>

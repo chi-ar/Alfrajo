@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+/* ============================================== */
+/* TEMA SCURO                                    */
+/* ============================================== */
+
+body[data-theme='dark'] {
+  background: #0d0d0d;
+  color: #ffffff;
+}
+
+
+/* ============================================== */
+/* TEMA CHIARO                                   */
+/* ============================================== */
+
+body[data-theme='light'] {
+  background: #f3f3f3;
+  color: #111111;
+}
