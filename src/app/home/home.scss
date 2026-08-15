@@ -3,7 +3,11 @@
 /* ============================================== */
 
 .home {
+  width: 100%;
+
   min-height: 100vh;
+
+  box-sizing: border-box;
 
   display: flex;
 
@@ -11,9 +15,9 @@
 
   justify-content: center;
 
-  box-sizing: border-box;
+  padding: 20px;
 
-  padding: 30px;
+  overflow: hidden;
 
   background:
     radial-gradient(
@@ -36,9 +40,13 @@
 
   max-width: 520px;
 
+  max-height: calc(100vh - 40px);
+
   box-sizing: border-box;
 
-  padding: 40px;
+  padding: 30px;
+
+  overflow: hidden;
 
   border: 1px solid #333;
 
@@ -50,19 +58,17 @@
     0 25px 70px rgba(0, 0, 0, 0.5);
 }
 
-
 /* ============================================== */
 /* TITOLO                                         */
 /* ============================================== */
 
 .title {
-  text-align: center;
-
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 
   padding: 0 10px;
-}
 
+  text-align: center;
+}
 
 .title h1 {
   margin: 0;
@@ -93,7 +99,7 @@
 /* ============================================== */
 
 .section {
-  margin-bottom: 30px;
+  margin-bottom: 18px;
 }
 
 
@@ -241,36 +247,36 @@
 
   justify-content: center;
 
-  width: 38px;
+  width: 34px;
 
-  min-width: 38px;
+  min-width: 34px;
 
-  height: 38px;
+  height: 34px;
 
-  border-radius: 10px;
+  border-radius: 8px;
 
   background: #292929;
 
   color: #999;
 
-  font-size: 14px;
+  font-size: 13px;
 
   font-weight: 600;
 }
 
 
 .player-input input {
-  width: 100%;
+  height: 40px;
 
-  height: 46px;
+  width: 100%;
 
   box-sizing: border-box;
 
-  padding: 0 14px;
+  padding: 0 12px;
 
   border: 1px solid #3b3b3b;
 
-  border-radius: 10px;
+  border-radius: 9px;
 
   outline: none;
 
@@ -278,13 +284,8 @@
 
   color: #ffffff;
 
-  font-size: 15px;
-
-  transition:
-    border-color 0.15s ease,
-    background 0.15s ease;
+  font-size: 14px;
 }
-
 
 .player-input input::placeholder {
   color: #666;
@@ -311,33 +312,28 @@
 
   width: 100%;
 
-  height: 56px;
+  height: 48px;
 
-  margin-top: 10px;
+  margin-top: 5px;
 
-  padding: 0 20px;
+  padding: 0 18px; 
 
   border: none;
 
-  border-radius: 12px;
+  border-radius: 10px;
 
   background: #ffffff;
 
   color: #111;
 
-  font-size: 15px;
+  font-size: 14px;
 
   font-weight: 800;
 
   letter-spacing: 0.5px;
 
   cursor: pointer;
-
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease;
 }
-
 
 .start-button:hover {
   transform: translateY(-2px);
@@ -358,7 +354,7 @@
 
 
 /* ============================================== */
-/* MOBILE                                         */
+/* REGOLE                                         */
 /* ============================================== */
 
 @media (max-width: 600px) {
@@ -382,6 +378,72 @@
 
   .title h1 {
     font-size: 34px;
+  }
+
+}
+
+@media (max-height: 750px) {
+
+  .home {
+    padding: 10px;
+  }
+
+
+  .setup-card {
+    padding: 20px;
+
+    max-height: calc(100vh - 20px);
+
+    border-radius: 18px;
+  }
+
+
+  .title {
+    margin-bottom: 18px;
+  }
+
+
+  .title h1 {
+    font-size: 30px;
+  }
+
+
+  .title p {
+    margin-top: 4px;
+
+    font-size: 13px;
+  }
+
+
+  .section {
+    margin-bottom: 12px;
+  }
+
+
+  .section h2 {
+    margin-bottom: 7px;
+
+    font-size: 13px;
+  }
+
+
+  .players-selector button {
+    height: 42px;
+  }
+
+
+  .life-input-wrapper input {
+    height: 40px;
+  }
+
+
+  .theme-selector button {
+    height: 40px;
+  }
+
+
+  .start-button {
+    height: 44px;
   }
 
 }
