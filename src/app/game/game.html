@@ -6,6 +6,8 @@
 
   <header class="game-header">
 
+    <!-- HOME -->
+
     <button
       type="button"
       class="back-button"
@@ -15,15 +17,28 @@
     </button>
 
 
+    <!-- TITOLO -->
+
     <div class="game-title">
-      <h1>Alfrajo</h1>
-      <span>Partita in corso</span>
+
+      <h1>
+        Alfrajo
+      </h1>
+
+      <span>
+        Partita in corso
+      </span>
+
     </div>
 
 
+    <!-- TIMER PARTITA -->
+
     <div class="game-timer">
 
-      <span>Tempo partita</span>
+      <span>
+        Tempo partita
+      </span>
 
       <strong>
         {{ formatTime(elapsedSeconds) }}
@@ -35,7 +50,7 @@
 
 
   <!-- ========================================== -->
-  <!-- TIMER GIOCATORE                           -->
+  <!-- TIMER GIOCATORE                            -->
   <!-- ========================================== -->
 
   <div class="current-player-timer">
@@ -52,30 +67,42 @@
 
 
   <!-- ========================================== -->
-  <!-- GIOCATORI                                 -->
+  <!-- GIOCATORI                                  -->
   <!-- ========================================== -->
 
   <main
     class="players"
 
     [class.one-player]="players.length === 1"
+
     [class.two-players]="players.length === 2"
+
     [class.three-players]="players.length === 3"
+
     [class.four-players]="players.length === 4"
   >
 
-    <section
-      class="player"
 
-      *ngFor="
-        let player of players;
-        let i = index
-      "
+    <!-- ======================================== -->
+    <!-- PLAYER                                   -->
+    <!-- ======================================== -->
 
-      [class.current-player]="
-        i === currentPlayerIndex
-      "
-    >
+ <section
+  class="player"
+
+  *ngFor="
+    let player of players;
+    let i = index
+  "
+
+  [class.current-player]="
+    i === currentPlayerIndex
+  "
+
+  [class.compact-talents]="
+    players.length <= 2
+  "
+>
 
 
       <!-- ====================================== -->
@@ -99,7 +126,10 @@
 
         <span
           class="turn-badge"
-          *ngIf="i === currentPlayerIndex"
+
+          *ngIf="
+            i === currentPlayerIndex
+          "
         >
           TURNO
         </span>
@@ -130,6 +160,7 @@
 
           <div
             class="life-bar-fill"
+
             [style.width.%]="
               player.life > 0
                 ? (player.life / 30) * 100
@@ -159,8 +190,10 @@
 
             <button
               type="button"
+
               (click)="
-                player.burst = player.burst - 1
+                player.burst =
+                  player.burst - 1
               "
             >
               −
@@ -174,8 +207,10 @@
 
             <button
               type="button"
+
               (click)="
-                player.burst = player.burst + 1
+                player.burst =
+                  player.burst + 1
               "
             >
               +
@@ -201,31 +236,66 @@
 
         <div class="token-list">
 
+
+          <!-- AZIONE -->
+
           <button
             type="button"
+
             class="token"
-            [class.used]="player.tokens.action"
+
+            [class.used]="
+              player.tokens.action
+            "
+
+            (click)="
+              player.tokens.action =
+                !player.tokens.action
+            "
           >
             Azione
           </button>
 
 
+          <!-- MOVIMENTO -->
+
           <button
             type="button"
+
             class="token"
-            [class.used]="player.tokens.move"
+
+            [class.used]="
+              player.tokens.move
+            "
+
+            (click)="
+              player.tokens.move =
+                !player.tokens.move
+            "
           >
             Movimento
           </button>
 
 
+          <!-- SPECIALE -->
+
           <button
             type="button"
+
             class="token"
-            [class.used]="player.tokens.special"
+
+            [class.used]="
+              player.tokens.special
+            "
+
+            (click)="
+              player.tokens.special =
+                !player.tokens.special
+            "
           >
             Speciale
           </button>
+
 
         </div>
 
@@ -245,11 +315,23 @@
 
         <div class="talent-list">
 
+
           <button
             type="button"
+
             class="talent"
+
             *ngFor="
               let talent of player.talents
+            "
+
+            (click)="
+              talent.active =
+                !talent.active
+            "
+
+            [class.used]="
+              talent.active
             "
           >
 
@@ -257,19 +339,25 @@
 
           </button>
 
+
         </div>
 
       </div>
 
 
       <!-- ====================================== -->
-      <!-- CONTROLLI TURNO                      -->
+      <!-- CONTROLLI TURNO                       -->
       <!-- ====================================== -->
 
       <div class="turn-controls">
 
+
+        <!-- FINE TURNO -->
+
         <button
-          *ngIf="i === currentPlayerIndex"
+          *ngIf="
+            i === currentPlayerIndex
+          "
 
           type="button"
 
@@ -281,6 +369,8 @@
         </button>
 
 
+        <!-- STORICO -->
+
         <button
           type="button"
 
@@ -291,26 +381,37 @@
               !openHistory[i]
           "
         >
-          {{ openHistory[i] ? '▲' : '▼' }}
+
+          {{
+            openHistory[i]
+              ? '▲'
+              : '▼'
+          }}
+
         </button>
+
 
       </div>
 
 
       <!-- ====================================== -->
-      <!-- STORICO                               -->
+      <!-- STORICO TURNI                         -->
       <!-- ====================================== -->
 
       <div
         class="turn-history"
 
-        *ngIf="openHistory[i]"
+        *ngIf="
+          openHistory[i]
+        "
       >
 
         <h4>
           Turni precedenti
         </h4>
 
+
+        <!-- TURNI -->
 
         <div
           class="previous-turn"
@@ -332,6 +433,8 @@
         </div>
 
 
+        <!-- NESSUN TURNO -->
+
         <p
           *ngIf="
             player.turnTimes.length === 0
@@ -340,10 +443,12 @@
           Nessun turno precedente
         </p>
 
+
       </div>
 
 
     </section>
+
 
   </main>
 
