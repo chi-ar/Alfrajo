@@ -1,3 +1,134 @@
-<h1>
-Partita iniziata
-</h1>
+<div class="game">
+
+  <header class="game-header">
+
+    <button
+      type="button"
+      class="back-button"
+      (click)="goBack()"
+    >
+      ← Torna indietro
+    </button>
+
+
+    <div class="timer">
+
+      <span class="timer-label">
+        Tempo partita
+      </span>
+
+      <strong>
+        {{ formattedTime }}
+      </strong>
+
+    </div>
+
+    
+
+  </header>
+
+
+  <main
+    class="players"
+    [class.one-player]="players.length === 1"
+    [class.two-players]="players.length === 2"
+    [class.three-players]="players.length === 3"
+    [class.four-players]="players.length === 4"
+  >
+
+    <section
+      class="player"
+      *ngFor="let player of players"
+    >
+
+      <div class="player-header">
+        <h2>{{ player.name }}</h2>
+      </div>
+
+
+      <div class="stat">
+
+        <span class="label">
+          Vita
+        </span>
+
+        <strong>
+          {{ player.life }}
+        </strong>
+
+      </div>
+
+
+      <div class="stat burst">
+
+        <span class="label">
+          Burst
+        </span>
+
+        <div class="counter">
+
+          <button
+            type="button"
+            (click)="player.burst = player.burst - 1"
+          >
+            −
+          </button>
+
+          <strong>
+            {{ player.burst }}
+          </strong>
+
+          <button
+            type="button"
+            (click)="player.burst = player.burst + 1"
+          >
+            +
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="tokens">
+
+        <h3>Token azione</h3>
+
+        <div class="token-list">
+
+          <button
+            *ngFor="let token of ['action', 'move', 'special']"
+            type="button"
+            class="token"
+          >
+            {{ token }}
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="talents">
+
+        <h3>Talenti</h3>
+
+        <div class="talent-list">
+
+          <button
+            *ngFor="let talent of player.talents"
+            type="button"
+            class="talent"
+          >
+            {{ talent.name }}
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
