@@ -18,4 +18,6 @@ export interface Player {
     active: boolean;
   }[];
 
+  turnTimes: number[];
+
 }

@@ -11,8 +11,11 @@ export class Game {
   startGame(names: string[], life: number) {
 
     this.players = names.map(name => ({
+
       name,
+
       life,
+
       burst: 0,
 
       tokens: {
@@ -42,8 +45,12 @@ export class Game {
           description: '',
           active: false
         }
-      ]
+      ],
+
+      turnTimes: []
+
     }));
 
   }
+
 }
