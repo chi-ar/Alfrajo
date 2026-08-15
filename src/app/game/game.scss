@@ -4,7 +4,6 @@
 
 .game {
   width: 100%;
-
   height: 100dvh;
 
   box-sizing: border-box;
@@ -12,7 +11,6 @@
   padding: 18px 22px;
 
   display: flex;
-
   flex-direction: column;
 
   overflow: hidden;
@@ -77,7 +75,6 @@
     color 0.15s ease;
 }
 
-
 .back-button:hover {
   background: #292929;
 
@@ -97,7 +94,6 @@
   white-space: nowrap;
 }
 
-
 .game-title h1 {
   margin: 0;
 
@@ -107,7 +103,6 @@
 
   letter-spacing: 1.5px;
 }
-
 
 .game-title span {
   display: block;
@@ -130,7 +125,6 @@
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   gap: 10px;
@@ -148,13 +142,11 @@
   background: #191919;
 }
 
-
 .game-timer span {
   color: #777777;
 
   font-size: 10px;
 }
-
 
 .game-timer strong {
   font-family: monospace;
@@ -171,7 +163,6 @@
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   gap: 12px;
@@ -193,13 +184,11 @@
   flex-shrink: 0;
 }
 
-
 .current-player-timer span {
   color: #aaaaaa;
 
   font-size: 11px;
 }
-
 
 .current-player-timer strong {
   font-family: monospace;
@@ -213,15 +202,17 @@
 /* ============================================== */
 
 .players {
-  display: grid;
-
   width: 100%;
 
   flex: 1;
 
   min-height: 0;
 
+  display: grid;
+
   gap: 14px;
+
+  align-items: start;
 }
 
 
@@ -239,7 +230,10 @@
 /* ============================================== */
 
 .players.two-players {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(
+    2,
+    minmax(0, 1fr)
+  );
 }
 
 
@@ -248,7 +242,10 @@
 /* ============================================== */
 
 .players.three-players {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(
+    3,
+    minmax(0, 1fr)
+  );
 }
 
 
@@ -257,7 +254,10 @@
 /* ============================================== */
 
 .players.four-players {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(
+    4,
+    minmax(0, 1fr)
+  );
 }
 
 
@@ -273,8 +273,6 @@
   min-width: 0;
 
   min-height: 0;
-
-  height: 100%;
 
   box-sizing: border-box;
 
@@ -318,7 +316,6 @@
   display: flex;
 
   align-items: center;
-
   justify-content: space-between;
 
   gap: 8px;
@@ -327,7 +324,6 @@
 
   flex-shrink: 0;
 }
-
 
 .player-name {
   display: flex;
@@ -339,12 +335,10 @@
   min-width: 0;
 }
 
-
 .player-number {
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   width: 34px;
@@ -363,7 +357,6 @@
 
   font-weight: 600;
 }
-
 
 .player-header h2 {
   margin: 0;
@@ -417,7 +410,6 @@
   flex-shrink: 0;
 }
 
-
 .stat-header {
   display: flex;
 
@@ -426,7 +418,6 @@
   justify-content: space-between;
 }
 
-
 .stat-header > span {
   color: #aaaaaa;
 
@@ -434,7 +425,6 @@
 
   font-weight: 600;
 }
-
 
 .life-value {
   font-size: 24px;
@@ -459,7 +449,6 @@
   background: #292929;
 }
 
-
 .life-bar-fill {
   height: 100%;
 
@@ -483,12 +472,10 @@
   gap: 7px;
 }
 
-
 .counter button {
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   width: 29px;
@@ -515,7 +502,6 @@
     color 0.15s ease;
 }
 
-
 .counter button:hover {
   background: #292929;
 
@@ -523,7 +509,6 @@
 
   color: #ffffff;
 }
-
 
 .counter strong {
   min-width: 22px;
@@ -543,7 +528,6 @@
 
   flex-shrink: 0;
 }
-
 
 .section h3 {
   margin: 0 0 7px;
@@ -568,7 +552,6 @@
   gap: 6px;
 }
 
-
 .token {
   padding: 7px 9px;
 
@@ -590,7 +573,6 @@
     color 0.15s ease;
 }
 
-
 .token:hover {
   background: #292929;
 
@@ -599,25 +581,50 @@
   color: #ffffff;
 }
 
-
 .token.used {
   opacity: 0.3;
 
   text-decoration: line-through;
 }
 
+
 /* ============================================== */
 /* TALENTI                                        */
 /* ============================================== */
 
 .talents-section {
-  flex: 1;
+  flex: 0 0 auto;
 
   min-height: 0;
 
-  overflow: hidden;
+  overflow: visible;
 }
 
+.talent-list {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 6px;
+}
+
+
+/* ============================================== */
+/* TALENTI 1/2 GIOCATORI                          */
+/* ============================================== */
+
+.compact-talents .talent-list {
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+}
+
+
+/* ============================================== */
+/* TALENTO                                        */
+/* ============================================== */
 
 .talent {
   min-width: 0;
@@ -650,27 +657,34 @@
     color 0.15s ease;
 }
 
-.talent-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 6px;
+.talent:hover {
+  background: #292929;
+
+  border-color: #555555;
+
+  color: #ffffff;
 }
 
-/* 1 e 2 giocatori: sempre 2x2 */
-.compact-talents .talent-list {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
 
-/* 3 e 4 giocatori:
-   su schermi stretti diventano 2x2 */
+/* ============================================== */
+/* 3/4 GIOCATORI - SCHERMI STRETTI               */
+/* ============================================== */
+
 @media (max-width: 1000px) {
 
-  .players.three-players .talent-list,
-  .players.four-players .talent-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  .players.three-players
+  .talent-list,
 
+  .players.four-players
+  .talent-list {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
 }
+
 
 /* ============================================== */
 /* CONTROLLI TURNO                               */
@@ -723,14 +737,13 @@
     box-shadow 0.15s ease;
 }
 
-
 .end-turn:hover {
   transform: translateY(-1px);
 
   box-shadow:
-    0 7px 20px rgba(255, 255, 255, 0.12);
+    0 7px 20px
+    rgba(255, 255, 255, 0.12);
 }
-
 
 .end-turn:active {
   transform: translateY(0);
@@ -745,7 +758,6 @@
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   width: 42px;
@@ -777,7 +789,6 @@
     border-color 0.15s ease,
     color 0.15s ease;
 }
-
 
 .history-button:hover {
   background: #292929;
@@ -814,7 +825,6 @@
   flex-shrink: 0;
 }
 
-
 .turn-history h4 {
   margin: 0 0 6px;
 
@@ -824,7 +834,6 @@
 
   font-weight: 600;
 }
-
 
 .previous-turn {
   display: flex;
@@ -842,18 +851,15 @@
   font-size: 10px;
 }
 
-
 .previous-turn:last-child {
   border-bottom: none;
 }
-
 
 .previous-turn strong {
   color: #ffffff;
 
   font-family: monospace;
 }
-
 
 .turn-history p {
   margin: 0;
@@ -880,27 +886,30 @@
   color: #111111;
 }
 
-
 :host-context(body[data-theme='light']) .player {
   border-color: #d5d5d5;
 
   background: rgba(255, 255, 255, 0.95);
 
   box-shadow:
-    0 10px 35px rgba(0, 0, 0, 0.08);
+    0 10px 35px
+    rgba(0, 0, 0, 0.08);
 }
 
-
-:host-context(body[data-theme='light']) .player.current-player {
+:host-context(body[data-theme='light'])
+.player.current-player {
   border-color: #111111;
 
   box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.1),
-    0 12px 35px rgba(0, 0, 0, 0.12);
+    0 0 0 1px
+    rgba(0, 0, 0, 0.1),
+
+    0 12px 35px
+    rgba(0, 0, 0, 0.12);
 }
 
-
-:host-context(body[data-theme='light']) .back-button {
+:host-context(body[data-theme='light'])
+.back-button {
   border-color: #d5d5d5;
 
   background: #f4f4f4;
@@ -908,8 +917,8 @@
   color: #666666;
 }
 
-
-:host-context(body[data-theme='light']) .back-button:hover {
+:host-context(body[data-theme='light'])
+.back-button:hover {
   background: #eaeaea;
 
   border-color: #bbbbbb;
@@ -917,58 +926,70 @@
   color: #111111;
 }
 
-
-:host-context(body[data-theme='light']) .game-title span {
+:host-context(body[data-theme='light'])
+.game-title span {
   color: #888888;
 }
 
+:host-context(body[data-theme='light'])
+.game-timer,
 
-:host-context(body[data-theme='light']) .game-timer,
-:host-context(body[data-theme='light']) .current-player-timer {
+:host-context(body[data-theme='light'])
+.current-player-timer {
   border-color: #d5d5d5;
 
   background: #f4f4f4;
 }
 
+:host-context(body[data-theme='light'])
+.game-timer span,
 
-:host-context(body[data-theme='light']) .game-timer span,
-:host-context(body[data-theme='light']) .current-player-timer span {
+:host-context(body[data-theme='light'])
+.current-player-timer span {
   color: #777777;
 }
 
-
-:host-context(body[data-theme='light']) .player-number {
+:host-context(body[data-theme='light'])
+.player-number {
   background: #e8e8e8;
 
   color: #666666;
 }
 
-
-:host-context(body[data-theme='light']) .stat-section {
+:host-context(body[data-theme='light'])
+.stat-section {
   border-color: #e5e5e5;
 }
 
+:host-context(body[data-theme='light'])
+.stat-header > span,
 
-:host-context(body[data-theme='light']) .stat-header > span,
-:host-context(body[data-theme='light']) .section h3 {
+:host-context(body[data-theme='light'])
+.section h3 {
   color: #666666;
 }
 
-
-:host-context(body[data-theme='light']) .life-bar {
+:host-context(body[data-theme='light'])
+.life-bar {
   background: #e5e5e5;
 }
 
-
-:host-context(body[data-theme='light']) .life-bar-fill {
+:host-context(body[data-theme='light'])
+.life-bar-fill {
   background: #111111;
 }
 
+:host-context(body[data-theme='light'])
+.counter button,
 
-:host-context(body[data-theme='light']) .counter button,
-:host-context(body[data-theme='light']) .token,
-:host-context(body[data-theme='light']) .talent,
-:host-context(body[data-theme='light']) .history-button {
+:host-context(body[data-theme='light'])
+.token,
+
+:host-context(body[data-theme='light'])
+.talent,
+
+:host-context(body[data-theme='light'])
+.history-button {
   border-color: #d5d5d5;
 
   background: #f4f4f4;
@@ -976,11 +997,17 @@
   color: #666666;
 }
 
+:host-context(body[data-theme='light'])
+.counter button:hover,
 
-:host-context(body[data-theme='light']) .counter button:hover,
-:host-context(body[data-theme='light']) .token:hover,
-:host-context(body[data-theme='light']) .talent:hover,
-:host-context(body[data-theme='light']) .history-button:hover {
+:host-context(body[data-theme='light'])
+.token:hover,
+
+:host-context(body[data-theme='light'])
+.talent:hover,
+
+:host-context(body[data-theme='light'])
+.history-button:hover {
   background: #eaeaea;
 
   border-color: #bbbbbb;
@@ -988,27 +1015,27 @@
   color: #111111;
 }
 
-
-:host-context(body[data-theme='light']) .turn-history {
+:host-context(body[data-theme='light'])
+.turn-history {
   border-color: #dddddd;
 
   background: #f4f4f4;
 }
 
-
-:host-context(body[data-theme='light']) .previous-turn {
+:host-context(body[data-theme='light'])
+.previous-turn {
   border-color: #dddddd;
 
   color: #666666;
 }
 
-
-:host-context(body[data-theme='light']) .previous-turn strong {
+:host-context(body[data-theme='light'])
+.previous-turn strong {
   color: #111111;
 }
 
-
-:host-context(body[data-theme='light']) .turn-history p {
+:host-context(body[data-theme='light'])
+.turn-history p {
   color: #888888;
 }
 
@@ -1017,13 +1044,15 @@
 /* RESPONSIVE: 4 -> 2 COLONNE                    */
 /* ============================================== */
 
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
 
   .players.four-players {
     grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
   }
-
 }
 
 
@@ -1031,22 +1060,20 @@
 /* SCHERMI BASSI                                 */
 /* ============================================== */
 
-@media (max-height: 750px) and (min-width: 751px) {
+@media (max-height: 750px)
+  and (min-width: 751px) {
 
   .game {
     padding: 12px 18px;
   }
 
-
   .game-header {
     margin-bottom: 8px;
   }
 
-
   .game-title h1 {
     font-size: 23px;
   }
-
 
   .current-player-timer {
     margin-bottom: 8px;
@@ -1054,37 +1081,36 @@
     padding: 5px 12px;
   }
 
-
   .player {
     padding: 14px;
   }
-
 
   .player-header {
     margin-bottom: 8px;
   }
 
-
   .section {
     margin-top: 9px;
   }
-
 
   .stat-section {
     padding: 7px 0;
   }
 
-
   .turn-controls {
     margin-top: 8px;
   }
-
 
   .end-turn,
   .history-button {
     height: 38px;
   }
 
+  .talent {
+    min-height: 34px;
+
+    padding: 5px;
+  }
 }
 
 
@@ -1104,7 +1130,6 @@
     padding: 12px;
   }
 
-
   .game-header {
     grid-template-columns: 1fr;
 
@@ -1113,26 +1138,21 @@
     margin-bottom: 10px;
   }
 
-
   .back-button {
     justify-self: center;
   }
-
 
   .game-title {
     order: -1;
   }
 
-
   .game-title h1 {
     font-size: 25px;
   }
 
-
   .game-timer {
     justify-self: center;
   }
-
 
   .current-player-timer {
     width: 100%;
@@ -1142,7 +1162,6 @@
     margin-bottom: 10px;
   }
 
-
   .players.one-player,
   .players.two-players,
   .players.three-players,
@@ -1150,27 +1169,23 @@
     grid-template-columns: 1fr;
   }
 
-
   .players {
+    display: grid;
+
+    width: 100%;
+
     flex: none;
-  }
-
-
-  .player {
-    height: auto;
 
     min-height: 0;
 
-    overflow: visible;
+    gap: 14px;
+
+    align-items: start;
   }
 
-
-  .talents-section {
-    flex: none;
-
-    overflow: visible;
+  .player {
+    padding: 18px;
   }
-
 }
 
 
@@ -1184,19 +1199,15 @@
     padding: 10px;
   }
 
-
   .player {
     padding: 14px;
   }
-
 
   .player-header h2 {
     font-size: 17px;
   }
 
-
   .game-title h1 {
     font-size: 22px;
   }
-
 }
